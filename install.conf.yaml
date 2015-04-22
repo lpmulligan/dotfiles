@@ -2,8 +2,11 @@
 
 - link:
     ~/.dotfiles: ''
-    ~/.bash_profile: bash_profile
-    ~/.bashrc: bashrc
+    ~/.bash_profile: bash/bash_profile
+    ~/.bashrc: bash/bashrc
+    ~/.zshrc: zsh/zshrc
+    ~/.vim_runtime: vim/vim_runtime/
+    ~/.vimrc: vim/vimrc
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
