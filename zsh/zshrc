@@ -5,11 +5,12 @@ ZSH=$HOME/dotfiles/zsh/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="fino"
+#ZSH_THEME="fino"
+ZSH_THEME="cobalt2"
 
 # Example aliases
-alias zshconfig="bbedit ~/.zshrc"
-alias ohmyzsh="bbedt ~/.oh-my-zsh"
+alias zshconfig="subl ~/.zshrc"
+alias ohmyzsh="subl ~/.oh-my-zsh"
 alias git='hub'
 alias g='git'
 
@@ -51,10 +52,10 @@ COMPLETION_WAITING_DOTS="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git brew brew-cask catimg git git-extras github osx sublime vagrant z zsh-syntax-highlighting)
 
-
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+
 #Highlight any time you type rm -rf in red
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor)
 ZSH_HIGHLIGHT_PATTERNS=('rm -rf *' 'fg=white,bold,bg=red')
@@ -68,7 +69,8 @@ export HISTCONTROL=ignoredups;
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help";
 
 
-export PATH="/opt/local/bin:/opt/chef/embedded/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin"
+export PATH="/opt/local/bin:/opt/chef/embedded/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/opt/go/libexec/bin"
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # # Preferred editor for local and remote sessions
