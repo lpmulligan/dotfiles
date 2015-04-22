@@ -10,3 +10,4 @@
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
+  - cp zsh/themes/*.zsh-theme oh-my-zsh/themes
