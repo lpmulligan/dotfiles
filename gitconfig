@@ -1,0 +1,14 @@
+[user]
+	name = Lawrence Mulligan
+	email = lmulligan@lpmnet.com
+[core]
+	editor = /usr/bin/vim
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[color]
+	ui = auto
+[alias]
+	s = status -s
+	lg = log --oneline --all --graph --decorate
