@@ -88,3 +88,4 @@ export PATH="/opt/local/bin:/opt/chef/embedded/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 #source ~/.bin/tmuxinator.zsh
 export EDITOR='vim'
+source /usr/local/share/zsh/site-functions/_aws
