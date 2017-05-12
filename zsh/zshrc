@@ -6,7 +6,8 @@ ZSH=$HOME/dotfiles/oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="fino"
-ZSH_THEME="cobalt2"
+#ZSH_THEME="cobalt2"
+ZSH_THEME="honukai"
 
 # Example aliases
 alias zshconfig="subl ~/.zshrc"
@@ -88,4 +89,30 @@ export PATH="/opt/local/bin:/opt/chef/embedded/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
 #source ~/.bin/tmuxinator.zsh
 export EDITOR='vim'
-source /usr/local/share/zsh/site-functions/_aws
+
+#man() {
+# Original from http://boredzo.org/blog/archives/2016-08-15/colorized-man-pages-understood-and-customized
+#        env \
+#            LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+#            LESS_TERMCAP_md=$(printf "\e[1;31m") \
+#            LESS_TERMCAP_me=$(printf "\e[0m") \
+#            LESS_TERMCAP_se=$(printf "\e[0m") \
+#            LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+#            LESS_TERMCAP_ue=$(printf "\e[0m") \
+#            LESS_TERMCAP_us=$(printf "\e[1;32m") \
+#            man "$@"
+#}
+
+man() {
+        env \
+             LESS_TERMCAP_mb=$'\e[1;31m' \
+             LESS_TERMCAP_md=$'\e[1;36m' \
+             LESS_TERMCAP_me=$'\e[0m' \
+             LESS_TERMCAP_se=$'\e[0m' \
+             LESS_TERMCAP_so=$'\e[1;40;92m' \
+             LESS_TERMCAP_ue=$'\e[0m' \
+             LESS_TERMCAP_us=$'\e[1;32m' \
+             man "$@"
+}
+autoload bashcompinit && bashcompinit
+source '/Users/lpm/lib/azure-cli/az.completion'
