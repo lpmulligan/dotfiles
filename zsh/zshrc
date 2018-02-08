@@ -14,6 +14,7 @@ alias zshconfig="subl ~/.zshrc"
 alias ohmyzsh="subl ~/.oh-my-zsh"
 alias git='hub'
 alias g='git'
+alias tf='terraform'
 
 #
 #
@@ -51,9 +52,19 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew brew-cask catimg git git-extras github osx sublime vagrant z zsh-syntax-highlighting)
+plugins=(ssh-agent brew brew-cask catimg git git-extras github osx sublime vagrant z zsh-syntax-highlighting history history-substring-search)
 
 source $ZSH/oh-my-zsh.sh
+
+# ZSH History Search Bindings
+##Vi
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
+
+##Emacs
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+
 
 # User configuration
 
@@ -70,7 +81,7 @@ export HISTCONTROL=ignoredups;
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help";
 
 
-export PATH="/opt/local/bin:/opt/chef/embedded/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/opt/go/libexec/bin"
+export PATH="/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/opt/go/libexec/bin:/Users/lpm/bin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -116,3 +127,4 @@ man() {
 }
 autoload bashcompinit && bashcompinit
 source '/Users/lpm/lib/azure-cli/az.completion'
+source /usr/local/opt/chruby/share/chruby/chruby.sh
