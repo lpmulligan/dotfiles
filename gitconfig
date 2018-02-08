@@ -1,6 +1,4 @@
 [user]
-	name = Lawrence Mulligan
-	email = lmulligan@lpmnet.com
 [core]
 	editor = /usr/bin/vim
 	excludesfile = /Users/lpm/.gitignore_global
@@ -13,7 +11,16 @@
 [alias]
 	s = status -s
 	lg = log --oneline --all --graph --decorate
+	br = branch
+	st = status
+	unstage = reset HEAD --
+	last = log -1 HEAD
+	ci = commit
+	co = checkout
 [include]
         path = ~/.gitconfig_local
 [github]
 	user = lpmulligan
+[user]
+	name = Lawrence Mulligan
+	email = lmulligan@10thmagnitude.com
