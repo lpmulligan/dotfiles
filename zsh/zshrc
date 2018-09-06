@@ -15,7 +15,7 @@ alias ohmyzsh="subl ~/.oh-my-zsh"
 alias git='hub'
 alias g='git'
 alias tf='terraform'
-
+alias minikube start='minikube start --vm-driver=vmwarefusion'
 #
 #
 # Set to this to use case-sensitive completion
@@ -52,7 +52,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(ssh-agent brew brew-cask catimg git git-extras github osx sublime vagrant z zsh-syntax-highlighting history history-substring-search)
+plugins=(ssh-agent brew brew-cask git git-extras github osx vagrant z zsh-syntax-highlighting history history-substring-search kubectl)
 
 source $ZSH/oh-my-zsh.sh
 
