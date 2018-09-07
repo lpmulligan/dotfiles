@@ -7,7 +7,74 @@ ZSH=$HOME/dotfiles/oh-my-zsh
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="fino"
 #ZSH_THEME="cobalt2"
-ZSH_THEME="honukai"
+#ZSH_THEME="honukai"
+ZSH_THEME="powerlevel9k/powerlevel9k"
+
+# Powerlevel 9K Options
+################################################################
+# Azure Profile
+################################################################
+zsh_azure_account(){
+  WINDOWS_ICON="\uE26F"
+  local az_account_username="$(az account list -otsv --query '[?isDefault==`true`].[user.name]' | cut -d @ -f 1 2>/dev/null)"
+  local az_account_name="$(az account list -otsv --query '[?isDefault==`true`].[name]' 2>/dev/null)"
+  if [[ -n "$az_account_username" ]]; then
+        echo -n "$WINDOWS_ICON $az_account_username@$az_account_name"
+  else
+        echo -n ""
+  fi
+}
+################################################################
+# Terraform Workspace
+################################################################
+zsh_tf_workspace(){
+      local terraform_bin=$(which terraform)
+    #  local symbol="\u21d2"
+      local symbol="\u21e8"
+      if [[ -x $terraform_bin && -d .terraform ]]; then
+            tf_current_workspace=$(terraform workspace list | grep '^*' | awk '{print $2}')
+            if [[ "$tf_current_workspace" != "default" ]]; then
+             echo -n "TF Workspace${symbol} $tf_current_workspace"
+            fi
+      else
+            echo -n ""
+      fi
+}
+
+#################################################
+# General Elements
+#################################################
+POWERLEVEL9K_MODE='awesome-patched'
+POWERLEVEL9K_STATUS_VERBOSE=false
+POWERLEVEL9K_STATUS_OK_IN_NON_VERBOSE=true
+POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%{%F{249}%}\u250f"
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%F{249}%}\u2517%{%F{default}%} "
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+#################################################
+# Custom Prompt Elemetns
+#################################################
+POWERLEVEL9K_CUSTOM_AZURE_ACCOUNT="zsh_azure_account"
+POWERLEVEL9K_CUSTOM_TF_WORKSPACE="zsh_tf_workspace"
+POWERLEVEL9K_CUSTOM_AZURE_ACCOUNT_BACKGROUND="yellow"
+POWERLEVEL9K_CUSTOM_AZURE_ACCOUNT_FOREGROUND="black"
+POWERLEVEL9K_CUSTOM_TF_WORKSPACE_BACKGROUND="blue"
+POWERLEVEL9K_CUSTOM_TF_WORKSPACE_FOREGROUND="white"
+#################################################
+# Standard Element Customization
+#################################################
+POWERLEVEL9K_OS_ICON_BACKGROUND="white"
+POWERLEVEL9K_OS_ICON_FOREGROUND="blue"
+POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
+POWERLEVEL9K_VCS_GIT_ICON=''
+#################################################
+# Prompt Elements
+#################################################
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs status)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(custom_azure_account custom_tf_workspace time)
+
 
 # Example aliases
 alias zshconfig="subl ~/.zshrc"
@@ -18,6 +85,9 @@ alias tf='terraform'
 alias minikube start='minikube start --vm-driver=vmwarefusion'
 #
 #
+# Default username to hide "user@hostname" info
+DEFAULT_USER="lpm"
+
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
