@@ -7,8 +7,9 @@ ZSH=$HOME/dotfiles/oh-my-zsh
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="fino"
 #ZSH_THEME="cobalt2"
-ZSH_THEME="honukai"
+#ZSH_THEME="honukai"
 #ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Powerlevel 9K Options
 ################################################################
@@ -79,7 +80,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(custom_azure_account custom_tf_workspace tim
 # Example aliases
 alias zshconfig="subl ~/.zshrc"
 alias ohmyzsh="subl ~/.oh-my-zsh"
-alias git='hub'
+#alias git='hub'
 alias g='git'
 alias tf='terraform'
 alias minikube start='minikube start --vm-driver=vmwarefusion'
@@ -122,7 +123,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(ssh-agent brew brew-cask git git-extras github osx vagrant z zsh-syntax-highlighting history history-substring-search kubectl)
+plugins=(ssh-agent brew git git-extras github osx vagrant z history history-substring-search kubectl zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -151,7 +152,8 @@ export HISTCONTROL=ignoredups;
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help";
 
 
-export PATH="/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/opt/go/libexec/bin:/Users/lpm/bin"
+export PATH="/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/opt/go/libexec/bin:/Users/lpm/bin:/Users/lpm/bin/tfe-cli/bin"
+export PATH="${PATH}:${HOME}/.krew/bin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -195,6 +197,13 @@ man() {
              LESS_TERMCAP_us=$'\e[1;32m' \
              man "$@"
 }
-autoload bashcompinit && bashcompinit
-source '/Users/lpm/lib/azure-cli/az.completion'
-source /usr/local/opt/chruby/share/chruby/chruby.sh
+
+# Kube PS1
+source "/usr/local/opt/kube-ps1/share/kube-ps1.sh"
+PS1='$(kube_ps1)'$PROMPT
+
+autoload -U +X bashcompinit && bashcompinit
+source /usr/local/etc/bash_completion.d/az
+source ~/.purepower
+
+#export PATH="/usr/local/opt/terraform@0.11/bin:$PATH"
