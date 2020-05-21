@@ -1,9 +1,10 @@
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot
+	ignore = dirty
 [submodule "vim/vim_runtime"]
 	path = vim/vim_runtime
 	url = https://github.com/amix/vimrc.git
-[submodule "dotdrop"]
-	path = dotdrop
-	url = https://github.com/deadc0de6/dotdrop.git
+[submodule "zsh/oh-my-zsh"]
+	path = zsh/oh-my-zsh
+	url = https://github.com/ohmyzsh/ohmyzsh.git

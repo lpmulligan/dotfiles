@@ -1,0 +1,18 @@
+- clean: ['~']
+
+- link:
+    ~/.dotfiles: ''
+    ~/.zshrc:
+        force: true
+        path: zsh/zshrc
+    ~/.vim_runtime: vim/vim_runtime/
+    ~/.vimrc:
+        force: true
+        path: vim/vimrc
+    ~/.gitconfig:
+        force: true
+        path: git/gitconfig
+    ~/.gitignore_global: git/gitignore_global
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
