@@ -7,9 +7,14 @@ ZSH=$HOME/dotfiles/oh-my-zsh
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="fino"
 #ZSH_THEME="cobalt2"
+<<<<<<< HEAD
 #ZSH_THEME="honukai"
 #ZSH_THEME="powerlevel9k/powerlevel9k"
 ZSH_THEME=powerlevel10k/powerlevel10k
+=======
+ZSH_THEME="honukai"
+#ZSH_THEME="powerlevel9k/powerlevel9k"
+>>>>>>> 0f3d07077e74c73be7d68894c26364829c511054
 
 # Powerlevel 9K Options
 ################################################################
