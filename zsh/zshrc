@@ -67,11 +67,6 @@ bindkey '^]' kube-toggle  # ctrl-] to toggle kubecontext in powerlevel10k prompt
 source $ZSH/oh-my-zsh.sh
 source /usr/local/etc/bash_completion.d/az
 
-#Kube-PS1
-source /path/to/kube-ps1.sh
-KUBE_PS1_SYMBOL_USE_IMG=true
-PROMPT='$(kube_ps1)'$PS1
-
 # Below must be last!
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
