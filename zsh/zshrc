@@ -7,16 +7,88 @@ ZSH=$HOME/dotfiles/oh-my-zsh
 # time that oh-my-zsh is loaded.
 #ZSH_THEME="fino"
 #ZSH_THEME="cobalt2"
-ZSH_THEME="honukai"
+#ZSH_THEME="honukai"
+#ZSH_THEME="powerlevel9k/powerlevel9k"
+ZSH_THEME=powerlevel10k/powerlevel10k
+
+# Powerlevel 9K Options
+################################################################
+# Azure Profile
+################################################################
+#zsh_azure_account(){
+#  WINDOWS_ICON="\uE26F"
+#  local az_account_username="$(az account list -otsv --query '[?isDefault==`true`].[user.name]' | cut -d @ -f 1 2&>/dev/null)"
+#  local az_account_name="$(az account list -otsv --query '[?isDefault==`true`].[name]' 2&>/dev/null)"
+#  if [[ -n "$az_account_username" ]]; then
+#        echo -n "$WINDOWS_ICON $az_account_username@$az_account_name"
+#  else
+#        echo -n ""
+#  fi
+#}
+################################################################
+# Terraform Workspace
+################################################################
+#zsh_tf_workspace(){
+#      local terraform_bin=$(which terraform)
+#    #  local symbol="\u21d2"
+#      local symbol="\u21e8"
+#      if [[ -x $terraform_bin && -d .terraform ]]; then
+#            tf_current_workspace=$(terraform workspace list | grep '^*' | awk '{print $2}')
+#            if [[ "$tf_current_workspace" != "default" ]]; then
+#             echo -n "TF Workspace${symbol} $tf_current_workspace"
+#            fi
+#      else
+#            echo -n ""
+#      fi
+#}
+
+#################################################
+# General Elements
+#################################################
+#POWERLEVEL9K_MODE='awesome-patched'
+#POWERLEVEL9K_STATUS_VERBOSE=false
+#POWERLEVEL9K_STATUS_OK_IN_NON_VERBOSE=true
+#POWERLEVEL9K_PROMPT_ON_NEWLINE=true
+#POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
+#POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%{%F{249}%}\u250f"
+#POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%{%F{249}%}\u2517%{%F{default}%} "
+#POWERLEVEL9K_SHORTEN_DIR_LENGTH=2
+#################################################
+# Custom Prompt Elemetns
+#################################################
+#POWERLEVEL9K_CUSTOM_AZURE_ACCOUNT="zsh_azure_account"
+#POWERLEVEL9K_CUSTOM_TF_WORKSPACE="zsh_tf_workspace"
+#POWERLEVEL9K_CUSTOM_AZURE_ACCOUNT_BACKGROUND="yellow"
+#POWERLEVEL9K_CUSTOM_AZURE_ACCOUNT_FOREGROUND="black"
+#POWERLEVEL9K_CUSTOM_TF_WORKSPACE_BACKGROUND="blue"
+#POWERLEVEL9K_CUSTOM_TF_WORKSPACE_FOREGROUND="white"
+#################################################
+# Standard Element Customization
+#################################################
+POWERLEVEL9K_OS_ICON_BACKGROUND="white"
+POWERLEVEL9K_OS_ICON_FOREGROUND="blue"
+POWERLEVEL9K_DIR_HOME_FOREGROUND="white"
+POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="white"
+POWERLEVEL9K_VCS_GIT_ICON=''
+#################################################
+# Prompt Elements
+#################################################
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon dir vcs status)
+#POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(kubecontext time)
+
 
 # Example aliases
-alias zshconfig="subl ~/.zshrc"
-alias ohmyzsh="subl ~/.oh-my-zsh"
+alias zshconfig="code ~/.zshrc"
+alias ohmyzsh="code ~/.oh-my-zsh"
 alias git='hub'
 alias g='git'
+alias tf='terraform'
+alias minikube start='minikube start --vm-driver=vmwarefusion'
+#
+#
+# Default username to hide "user@hostname" info
+DEFAULT_USER="lpm"
 
-#
-#
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
 
@@ -51,9 +123,19 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(brew brew-cask catimg git git-extras github osx sublime vagrant z zsh-syntax-highlighting kubernetes)
+plugins=(ssh-agent brew brew-cask git git-extras github osx vagrant z zsh-syntax-highlighting history history-substring-search kubectl)
 
 source $ZSH/oh-my-zsh.sh
+
+# ZSH History Search Bindings
+##Vi
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
+
+##Emacs
+bindkey -M emacs '^P' history-substring-search-up
+bindkey -M emacs '^N' history-substring-search-down
+
 
 # User configuration
 
@@ -70,7 +152,7 @@ export HISTCONTROL=ignoredups;
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help";
 
 
-export PATH="/opt/local/bin:/opt/chef/embedded/bin:/usr/local/opt/python/libexec/bin:/usr/local/bin:/bin:/usr/sbin:/sbin:/usr/bin:/opt/X11/bin:/usr/local/opt/go/libexec/bin:/Users/lpm/bin"
+export PATH="/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/opt/go/libexec/bin:/Users/lpm/bin"
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -91,11 +173,32 @@ autoload bashcompinit && bashcompinit
 
 #source ~/.bin/tmuxinator.zsh
 export EDITOR='vim'
-#source /usr/local/share/zsh/site-functions/_aws
-source '/Users/lpm/lib/azure-cli/az.completion'
-if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
-#Set $FPATH to find custom functions
-#Don't forget to run #autoload -Uz on the function after putting it in the directory
-fpath=( ~/dotfiles/zsh/funcs "${fpath[@]}" )
-autoload -Uz td
+#man() {
+# Original from http://boredzo.org/blog/archives/2016-08-15/colorized-man-pages-understood-and-customized
+#        env \
+#            LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+#            LESS_TERMCAP_md=$(printf "\e[1;31m") \
+#            LESS_TERMCAP_me=$(printf "\e[0m") \
+#            LESS_TERMCAP_se=$(printf "\e[0m") \
+#            LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+#            LESS_TERMCAP_ue=$(printf "\e[0m") \
+#            LESS_TERMCAP_us=$(printf "\e[1;32m") \
+#            man "$@"
+#}
+
+man() {
+        env \
+             LESS_TERMCAP_mb=$'\e[1;31m' \
+             LESS_TERMCAP_md=$'\e[1;36m' \
+             LESS_TERMCAP_me=$'\e[0m' \
+             LESS_TERMCAP_se=$'\e[0m' \
+             LESS_TERMCAP_so=$'\e[1;40;92m' \
+             LESS_TERMCAP_ue=$'\e[0m' \
+             LESS_TERMCAP_us=$'\e[1;32m' \
+             man "$@"
+}
+autoload bashcompinit && bashcompinit
+source /Users/lpm/lib/azure-cli/az.completion
+#source /usr/local/opt/chruby/share/chruby/chruby.sh
+source ~/.purepower
