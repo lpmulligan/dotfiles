@@ -5,14 +5,21 @@
     ~/.zshrc:
         force: true
         path: zsh/zshrc
-    ~/.vim_runtime: vim/vim_runtime/
+    ~/.vim_runtime:
+        force: true
+        path: vim/vim_runtime/
     ~/.vimrc:
         force: true
         path: vim/vimrc
     ~/.gitconfig:
         force: true
         path: git/gitconfig
-    ~/.gitignore_global: git/gitignore_global
+    ~/.gitignore_global:
+        force: true
+        path: git/gitignore_global
+    ~/.p10k.zsh:
+        force: true
+        path: zsh/p10k.zsh
 
 - shell:
   - [git submodule update --init --recursive, Installing submodules]
