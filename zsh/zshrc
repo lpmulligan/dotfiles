@@ -38,7 +38,7 @@ plugins=(git brew kube-ps1 kubectl z)
 ################################################################
 
 # Would you like to use another custom folder than $ZSH/custom?
-# ZSH_CUSTOM=/path/to/new-custom-folder
+ZSH_CUSTOM=$HOME/dotfiles/zsh/custom
 
 # Homebrew autocompletions
 if type brew &>/dev/null; then
@@ -54,8 +54,14 @@ fi
 # Load ZSH and Extras Information
 ################################################################
 source $ZSH/oh-my-zsh.sh
-#autoload bashcompinit && bashcompinit
 source /usr/local/etc/bash_completion.d/az
+
+#Kube-PS1
+source /path/to/kube-ps1.sh
+KUBE_PS1_SYMBOL_USE_IMG=true
+PROMPT='$(kube_ps1)'$PS1
+
+# Below must be last!
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ################################################################
