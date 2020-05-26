@@ -55,7 +55,7 @@ fi
 
 #Functions 
 fpath=(~$Home/dotfiles/zsh/custom/zshfunctions "${fpath[@]}" )
-autoload -Uz kube-toggle
+autoload -Uz kube-toggle td
 
 # Key Bindings
 zle -N kube-toggle
