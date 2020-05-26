@@ -37,6 +37,12 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git brew kubectl z)
 #plugins=(ssh-agent brew brew-cask git git-extras github osx vagrant z zsh-syntax-highlighting history history-substring-search kubectl)
 
+################################################################
+# Aliases  
+################################################################
+alias zshconfig="code ~/.zshrc"
+alias tf="terraform"
+alias weather="curl http://v2.wttr.in/"
 
 ################################################################
 # ZSH Customization Information
@@ -147,8 +153,9 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-alias zshconfig="code ~/.zshrc"
-alias tf="terraform"
 
+################################################################
+# Load P10K.  MUST BE LAST!!! 
+################################################################
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/zsh/p10k.zsh.
 [[ ! -f ~/dotfiles/zsh/p10k.zsh ]] || source ~/dotfiles/zsh/p10k.zsh
