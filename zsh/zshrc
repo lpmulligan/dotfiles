@@ -12,10 +12,13 @@ fi
 ################################################################
 # Paths
 ################################################################
-export PATH="/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/opt/go/libexec/bin:$HOME/bin"
+export PATH="/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/opt/go/libexec/bin:$HOME/bin:/Users/lpm/.dotnet/tools"
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/dotfiles/zsh/oh-my-zsh
+
+# Path for Krew plugins
+export PATH="${PATH}:${HOME}/.krew/bin"
 
 ################################################################
 # Theme Information
@@ -43,6 +46,8 @@ plugins=(git brew kubectl z)
 alias zshconfig="code ~/.zshrc"
 alias tf="terraform"
 alias weather="curl http://v2.wttr.in/"
+alias cls="colorls"
+alias lsc='colorls -lA --sd'
 
 ################################################################
 # ZSH Customization Information
@@ -160,3 +165,6 @@ source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ################################################################
 # To customize prompt, run `p10k configure` or edit ~/dotfiles/zsh/p10k.zsh.
 [[ ! -f ~/dotfiles/zsh/p10k.zsh ]] || source ~/dotfiles/zsh/p10k.zsh
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
