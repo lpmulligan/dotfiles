@@ -11,3 +11,6 @@
 [submodule "zsh/custom/themes/powerlevel10k"]
 	path = zsh/custom/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
+[submodule "emacs/chemacs2-emacs"]
+	path = emacs/chemacs2-emacs
+	url = https://github.com/plexus/chemacs2.git
