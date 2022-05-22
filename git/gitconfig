@@ -1,4 +1,5 @@
 [user]
+	email = lmulligan@lpmnet.com
 [core]
 	editor = /usr/bin/vim
 	excludesfile = /Users/lpm/.gitignore_global
@@ -23,7 +24,6 @@
 	user = lpmulligan
 [user]
 	name = Lawrence Mulligan
-	email = lmulligan@10thmagnitude.com
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
