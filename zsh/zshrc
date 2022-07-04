@@ -53,7 +53,7 @@ plugins=(git brew kubectl z)
 ################################################################
 # Colorls   
 ################################################################
-source $(dirname $(gem which colorls))/tab_complete.sh
+#source $(dirname $(gem which colorls))/tab_complete.sh
 
 ################################################################
 # Aliases  
@@ -105,12 +105,12 @@ source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Node Information
-export NVM_DIR=~/.nvm
-source $(brew --prefix nvm)/nvm.sh
+#export NVM_DIR=~/.nvm
+#source $(brew --prefix nvm)/nvm.sh
 
 # Google Cloud
-source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
-source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+#source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
+#source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 
 ################################################################
 # Default oh-my-zsh Information
@@ -187,7 +187,7 @@ source "/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #source /usr/local/share/zsh/site-functions/_aws
-source /opt/homebrew/share/zsh/site-functions/_aws
+#source /opt/homebrew/share/zsh/site-functions/_aws
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
