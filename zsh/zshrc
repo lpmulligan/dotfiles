@@ -30,7 +30,6 @@ export PATH="${PATH}:${HOME}/.krew/bin"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/lib/ruby/gems/3.1.0/bin:$PATH"
 
-
 ################################################################
 # Theme Information
 ################################################################
@@ -51,9 +50,10 @@ plugins=(git brew kubectl z)
 #plugins=(ssh-agent brew brew-cask git git-extras github osx vagrant z zsh-syntax-highlighting history history-substring-search kubectl)
 
 ################################################################
-# Colorls   
+# Misc Commands 
 ################################################################
 source $(dirname $(gem which colorls))/tab_complete.sh
+source /Users/lpm/.config/broot/launcher/bash/br
 
 ################################################################
 # Aliases  
@@ -61,8 +61,15 @@ source $(dirname $(gem which colorls))/tab_complete.sh
 alias zshconfig="code ~/.zshrc"
 alias tf="terraform"
 alias weather="curl http://v2.wttr.in/"
-alias cls="colorls"
-alias lsc='colorls -lA --sd'
+alias ls='lsd'
+alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
+
+################################################################
+# Python   
+################################################################
+export PYENV_ROOT="$HOME/.pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
 
 ################################################################
 # ZSH Customization Information
