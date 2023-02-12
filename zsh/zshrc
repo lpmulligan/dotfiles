@@ -52,8 +52,6 @@ plugins=(git brew kubectl z)
 ################################################################
 # Misc Commands 
 ################################################################
-#source $(dirname $(gem which colorls))/tab_complete.sh
-#source /Users/lpm/.config/broot/launcher/bash/br
 
 ################################################################
 # Aliases  
@@ -61,9 +59,14 @@ plugins=(git brew kubectl z)
 alias zshconfig="code ~/.zshrc"
 alias tf="terraform"
 alias weather="curl http://v2.wttr.in/"
-alias ls='lsd'
 alias brew='env PATH="${PATH//$(pyenv root)\/shims:/}" brew'
 
+# lsd
+alias ls='lsd'
+alias l='ls -l'
+alias la='ls -a'
+alias lla='ls -la'
+alias lt='ls --tree'
 ################################################################
 # Python   
 ################################################################
