@@ -12,7 +12,7 @@ fi
 ################################################################
 # Paths
 ################################################################
-export PATH="$HOME/bin:/opt/homebrew/bin/:/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/opt/go/libexec/bin"
+export PATH="$HOME/bin:/opt/homebrew/bin:/opt/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/opt/go/libexec/bin"
 
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/dotfiles/zsh/oh-my-zsh
