@@ -4,19 +4,19 @@
 	ignore = dirty
 [submodule "vim/vim_runtime"]
 	path = vim/vim_runtime
-	url = https://github.com/amix/vimrc.git
+	url = https://github.com/thesabbir/vim_runtime.git 
 [submodule "zsh/oh-my-zsh"]
 	path = zsh/oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
 [submodule "zsh/custom/themes/powerlevel10k"]
 	path = zsh/custom/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
-[submodule "emacs/chemacs2-emacs"]
-	path = emacs/chemacs2-emacs
-	url = https://github.com/plexus/chemacs2.git
-[submodule "emacs/doom-emacs"]
-	path = emacs/doom-emacs
-	url = https://github.com/hlissner/doom-emacs
 [submodule "emacs/chemacs2"]
 	path = emacs/chemacs2
 	url = https://github.com/plexus/chemacs2.git
+[submodule "emacs/doomemacs"]
+	path = emacs/doomemacs
+	url = https://github.com/doomemacs/doomemacs.git
+[submodule "emacs/spacemacs"]
+	path = emacs/spacemacs
+	url = https://github.com/syl20bnr/spacemacs.git
