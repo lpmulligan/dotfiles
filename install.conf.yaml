@@ -22,11 +22,7 @@
         path: zsh/p10k.zsh
     ~/.emacs.d:
         force: true
-<<<<<<< HEAD
-        path: emacs/doom‍️emacs
-=======
-        path: emacs/chemacs2
->>>>>>> 71f387ec778e343fe860ed6b6493336ade4841e0
+        path: emacs/doomemacs
     ~/.emacs-profiles.el:
         force: true
         path: emacs/emacs-profiles.el
