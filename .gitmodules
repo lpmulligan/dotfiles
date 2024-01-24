@@ -5,18 +5,24 @@
 [submodule "vim/vim_runtime"]
 	path = vim/vim_runtime
 	url = https://github.com/thesabbir/vim_runtime.git 
+    ignore = all
 [submodule "zsh/oh-my-zsh"]
 	path = zsh/oh-my-zsh
 	url = https://github.com/ohmyzsh/ohmyzsh.git
+    ignore = all
 [submodule "zsh/custom/themes/powerlevel10k"]
 	path = zsh/custom/themes/powerlevel10k
 	url = https://github.com/romkatv/powerlevel10k.git
+    ignore = all
 [submodule "emacs/chemacs2"]
 	path = emacs/chemacs2
 	url = https://github.com/plexus/chemacs2.git
+    ignore = all
 [submodule "emacs/doomemacs"]
 	path = emacs/doomemacs
 	url = https://github.com/doomemacs/doomemacs.git
+    ignore = all
 [submodule "emacs/spacemacs"]
 	path = emacs/spacemacs
 	url = https://github.com/syl20bnr/spacemacs.git
+    ignore = all
